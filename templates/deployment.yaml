@@ -49,11 +49,11 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.envFrom }}
           envFrom:
-          {{- toYaml . | nindent 8 }}
+          {{- toYaml . | nindent 12 }}
           {{- end }}
           volumeMounts:
           {{- with .Values.volumeMounts }}
-          {{- toYaml . | nindent 8 }}
+          {{- toYaml . | nindent 12 }}
           {{- end }}
 
       {{- with .Values.nodeSelector }}

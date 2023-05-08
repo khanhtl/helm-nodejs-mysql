@@ -45,9 +45,9 @@ service:
 
 envFrom:
   - configMapRef: 
-    name: configmap-volume
+      name: configmap-volume
   - secretRef: 
-    name: secret-volume
+      name: secret-volume
 volumeMounts:
   - name: configmap-volume
     mountPath: /configmap
