@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap
+data:
+  configmap: |-
+    {{ .Files.Get (printf "%s/configmap.conf" .Values.name) | nindent 4 }}

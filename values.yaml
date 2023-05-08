@@ -4,11 +4,13 @@
 
 replicaCount: 1
 
+name: nodejsmysql
+
 image:
-  repository: nginx
+  repository: tlkhanh029/nodejsmysql
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -37,8 +39,27 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
+  type: NodePort
   port: 80
+  nodePort: 31001
+
+envFrom:
+  - configMapRef: 
+    name: configmap-volume
+  - secretRef: 
+    name: secret-volume
+volumeMounts:
+  - name: configmap-volume
+    mountPath: /configmap
+  - name: secret-volume
+    mountPath: /secret
+volumes:
+  - name: configmap-volume
+    configMap:
+      name: configmap
+  - name: secret-volume
+    secret:
+      secretName: secret
 
 ingress:
   enabled: false

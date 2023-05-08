@@ -1,6 +1,6 @@
 apiVersion: v2
 name: nodejs-mysql
-description: A Helm chart for Kubernetes
+description: Helm chart nodejs-mysql
 
 # A chart can be either an 'application' or a 'library' chart.
 #
